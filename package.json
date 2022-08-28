@@ -1,0 +1,9 @@
+{
+  "name": "poh-semaphore",
+  "description": "A monorepo of Proof of Humanity Semaphore packages.",
+  "license": "MIT",
+  "private": true,
+  "workspaces": [
+    "packages/*"
+  ]
+}
