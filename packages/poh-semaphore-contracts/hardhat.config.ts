@@ -6,6 +6,7 @@ import { resolve } from "path";
 import "./tasks/accounts";
 import "./tasks/deploy-nullifier-consistency-verifier";
 import "./tasks/deploy-poh-semaphore";
+import "./tasks/deploy-anon-mood-index";
 import { NetworksUserConfig } from "hardhat/types";
 
 dotenvConfig({ path: resolve(__dirname, "./.env") });
