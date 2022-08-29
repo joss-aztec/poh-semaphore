@@ -6,5 +6,9 @@
   "workspaces": [
     "packages/*",
     "examples/*"
-  ]
+  ],
+  "scripts": {
+    "build:client": "cd packages/poh-semaphore-client && yarn build",
+    "build:registration": "yarn build:client && cd packages/poh-semaphore-registration && yarn build"
+  }
 }
