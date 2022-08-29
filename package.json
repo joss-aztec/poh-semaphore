@@ -10,6 +10,7 @@
   "scripts": {
     "build:client": "cd packages/poh-semaphore-client && yarn build",
     "clear-cache:registration": "rm -rf packages/poh-semaphore-registration/node_modules/.cache",
-    "build:registration": "yarn build:client && yarn clear-cache:registration && cd packages/poh-semaphore-registration && yarn build"
+    "build:registration": "yarn build:client && yarn clear-cache:registration && cd packages/poh-semaphore-registration && yarn build",
+    "build:anon-mood-index": "yarn build:client && cd examples/anon-mood-index-frontend && yarn build"
   }
 }
