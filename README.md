@@ -37,7 +37,7 @@ Any service intending to build on PoH Semaphore (and its existing pool of regist
 
 Anonymous user actions should call PoH Semaphore's `verifyProof` method with proof information produced by the interacting user. Each proof is disposable, so the user will have to generate this information for every interaction. Furthermore the service should also declare a service nullifier, and test that the `serviceNullifier` forwarded to `verifyProof` is consistent with the service. Your service nullifier can be any unique snark field element, such as the hash of the name of your service.
 
-IMPORTANT: If a service contract has more than one ingress for user interactions, then an attack is possible in which an intercepted proof could be redirected to a different method. A user's intent should be fully encoded into the proof so it can't be tampered, and then evaluated at one ingress on the service contract.
+**IMPORTANT**: If a service contract has more than one ingress for user interactions, then an attack is possible in which an intercepted proof could be redirected to a different method. A user's intent should be fully encoded into the proof so it can't be tampered, and then evaluated at one ingress on the service contract.
 
 #### Frontend integration
 
@@ -45,7 +45,7 @@ Since a user's presence within a service is represented by their identity proxy,
 
 For performing contract interactions the user will first have to produce a semaphore & nullifier consistency proof pair that encodes their desired message. This again requires a signature over `IDENTITY_SIGNING_MESSAGE`, which is then passed alongside the service nullifier and the desired signal into `poh-semaphore-client`'s `generateProofPair` function.
 
-IMPORTANT: Before submitting the resulting proof information, the user should be prompted to switch wallets. If a user were to submit their interaction using the same signer that they used to regenerate their identity, then the user's identity would be doxed and the whole exercise rendered pointless.
+**IMPORTANT**: Before submitting the resulting proof information, the user should be prompted to switch wallets. If a user were to submit their interaction using the same signer that they used to regenerate their identity, then the user's identity would be doxed and the whole exercise rendered pointless.
 
 ## For user management
 
@@ -65,9 +65,19 @@ This current UI is clunky and serves mainly as a convenience for interacting wit
 ### Anon Mood Index
 
 - Contract src: [`AnonMoodIndex.sol`](packages/poh-semaphore-contracts/contracts/example_services/AnonMoodIndex.sol)
+- Contract deployment: [`0x94761D8EBCC12d49b4A38f82EE34e28abeD5fB8B (goerli)`](https://goerli.etherscan.io/address/0x94761D8EBCC12d49b4A38f82EE34e28abeD5fB8B)
 - Fontend src: [`examples/anon-mood-index-frontend`](examples/anon-mood-index-frontend)
+- Frontend deployment: [`(goerli)`](https://zingy-blancmange-116a3f.netlify.app/)
 
 A trite example of how being able to track the activity of anonymous individuals is important for state aggregation. If it were not possible to track the participants, then any user could corrupt the average mood index by repeatedly submitting a value that they wanted the average to move towards.
+
+### Anon UBI
+
+- Contract src: [`AnonUbi.sol`](packages/poh-semaphore-contracts/contracts/example_services/AnonUbi.sol)
+- Contract deployment: (Not yet deployed)
+- Fontend src: (Not yet implemented)
+
+A simplified illustration of how a human might anonymously claim their alloted UBI.
 
 ## Developing in this monorepo
 
