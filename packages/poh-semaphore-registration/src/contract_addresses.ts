@@ -5,6 +5,6 @@ export const contractAddresses = {
   },
   goerli: {
     poh: "0xd8C0C93c1F55a208C093c7141bdE2d251072b623",
-    pohSemaphore: "0x009112E0B79d8fb40e623d3B79b4CfdA2d493fbF",
+    pohSemaphore: "0xD40588C85FeC35B7d9E437CE86CA64c035cBE4FC",
   },
 };

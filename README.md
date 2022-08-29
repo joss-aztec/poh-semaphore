@@ -27,7 +27,7 @@ The circuit uses the same derivation of the nullifier hash as found in the [`sem
 ### Integrating PoH Semaphore into services
 
 - Contract src: [`ProofOfHumanitySemaphore.sol`](/packages/poh-semaphore-contracts/contracts/ProofOfHumanitySemaphore.sol)
-- Contract deployment: [`0x009112E0B79d8fb40e623d3B79b4CfdA2d493fbF (goerli)`](https://goerli.etherscan.io/address/0x009112E0B79d8fb40e623d3B79b4CfdA2d493fbF)
+- Contract deployment: [`0xD40588C85FeC35B7d9E437CE86CA64c035cBE4FC (goerli)`](https://goerli.etherscan.io/address/0xD40588C85FeC35B7d9E437CE86CA64c035cBE4FC)
 - Client tools src: [`packages/poh-semaphore-client`](packages/poh-semaphore-client)
 - Client tools npm: TODO
 
@@ -65,7 +65,7 @@ This current UI is clunky and serves mainly as a convenience for interacting wit
 ### Anon Mood Index
 
 - Contract src: [`AnonMoodIndex.sol`](packages/poh-semaphore-contracts/contracts/example_services/AnonMoodIndex.sol)
-- Contract deployment: [`0x94761D8EBCC12d49b4A38f82EE34e28abeD5fB8B (goerli)`](https://goerli.etherscan.io/address/0x94761D8EBCC12d49b4A38f82EE34e28abeD5fB8B)
+- Contract deployment: [`0x0137478F6E112410C5aB917A05805DB4923440E1 (goerli)`](https://goerli.etherscan.io/address/0x0137478F6E112410C5aB917A05805DB4923440E1)
 - Fontend src: [`examples/anon-mood-index-frontend`](examples/anon-mood-index-frontend)
 - Frontend deployment: [`(goerli)`](https://zingy-blancmange-116a3f.netlify.app/)
 

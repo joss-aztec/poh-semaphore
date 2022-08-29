@@ -6,7 +6,7 @@ A wrapper around the Proof of Humanity Protocol and Semaphore protocol for enabl
 
 #### Goerli
 
-[ProofOfHumanitySemaphore](https://goerli.etherscan.io/address/0x009112E0B79d8fb40e623d3B79b4CfdA2d493fbF)
+[ProofOfHumanitySemaphore](https://goerli.etherscan.io/address/0xD40588C85FeC35B7d9E437CE86CA64c035cBE4FC)
 
 [NullifierConsistencyVerifier](https://goerli.etherscan.io/address/0x26D3a8c7254f0Ce06f3417d30b2753e4CC3fCD4f)
 
