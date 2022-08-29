@@ -10,7 +10,7 @@ import { anonMoodIndex } from "./abi/anon_mood_index";
 import { contractAddresses } from "./contract_addresses";
 import {
   generateProofPair,
-  INDENTITY_SIGNING_MESSAGE,
+  IDENTITY_SIGNING_MESSAGE,
 } from "poh-semaphore-client";
 import { ANON_MOOD_INDEX_SERVICE_NULLIFIER } from "./server_nullifier";
 
@@ -72,7 +72,7 @@ function usePrepareSubmission(
   });
   if (!signerAddress) throw new Error("No signer address");
   const { signMessageAsync } = useSignMessage({
-    message: INDENTITY_SIGNING_MESSAGE,
+    message: IDENTITY_SIGNING_MESSAGE,
   });
   const prepareSubmission = async () => {
     setState({ error: null, busy: true, result: null, signerAddress: null });

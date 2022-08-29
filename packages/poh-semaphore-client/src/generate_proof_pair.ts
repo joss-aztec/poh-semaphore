@@ -1,12 +1,12 @@
 import { Identity } from "@semaphore-protocol/identity";
 import { BigNumber } from "ethers";
 import { randomBytes } from "ethers/lib/utils";
-import { Subgraph } from "@semaphore-protocol/subgraph";
 import { Group } from "@semaphore-protocol/group";
 import { config } from "./config";
 import { generateSemaphoreProof } from "./generate_semaphore_proof";
 import { generateNullifierConsistencyProof } from "./generate_nullifier_consistency_proof";
 import { Proof } from "./types";
+import { getMembers } from "./get_members";
 
 function genRandomNumber(numberOfBytes = 31): string {
   return BigNumber.from(randomBytes(numberOfBytes)).toString();
@@ -36,10 +36,7 @@ export async function generateProofPair(
     identity.getNullifier().toString(),
     genRandomNumber()
   );
-  const subgraph = new Subgraph(config.network);
-  const { members } = await subgraph.getGroup(config.groupId, {
-    members: true,
-  });
+  const members = await getMembers();
   const group = new Group(config.treeDepth, config.zeroValue);
   group.addMembers(members);
   const semaphoreFullProof = await generateSemaphoreProof(

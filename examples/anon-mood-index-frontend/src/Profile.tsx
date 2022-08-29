@@ -4,13 +4,13 @@ import { useState } from "react";
 import MoodIndex from "./MoodIndex";
 import {
   generateIdentityProxy,
-  INDENTITY_SIGNING_MESSAGE,
+  IDENTITY_SIGNING_MESSAGE,
 } from "poh-semaphore-client";
 import { ANON_MOOD_INDEX_SERVICE_NULLIFIER } from "./server_nullifier";
 
 export default function Profile() {
   const { signMessageAsync } = useSignMessage({
-    message: INDENTITY_SIGNING_MESSAGE,
+    message: IDENTITY_SIGNING_MESSAGE,
   });
   const [userId, setUserId] = useState<string>();
 
