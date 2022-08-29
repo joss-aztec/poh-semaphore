@@ -127,7 +127,7 @@ export default function UpdateMoodIndex() {
       {!submissionArgs && !isPreparingSubmission && (
         <p>On a scale of 0 to 255, how do you feel?</p>
       )}
-      <div style={{ display: "flex", gap: 20 }}>
+      <div style={{ display: "flex", gap: 20, justifyContent: "center" }}>
         {!submissionArgs && !isPreparingSubmission && (
           <>
             <input
