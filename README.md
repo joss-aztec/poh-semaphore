@@ -14,13 +14,17 @@ This project is built on the Semaphore Protocol and thus the following explanati
 
 The Semaphore Protocol is designed for complete anonymity when sending signals, which makes it inconvenient for dApps that wish to reason about the activity of individuals in a verifiable manner. PoH Semaphore addresses this problem with an auxiliary ZKP, that publicly exposes a user's identity proxy, which is verifiably unique to the user that produced the semaphore signal proof counterpart.
 
-The circuit that enforces this relationship is [`NullifierConsistency.circom`](packages/poh-semaphore-contracts/circuits/NullifierConsistency.circom).
+The circuit that enforces this relationship is [`NullifierConsistency.circom`](packages/poh-semaphore-contracts/circuits/NullifierConsistency.circom). The diagram below highlights the values introduced by this circuit. The constraints of this circuit include the highlighted region and also the regeneration of the nullifier hash.
+
+![Circuit extension diagram](circuit_extension.png)
 
 The identity proxy is formed by hashing two inputs: the service nullifier - which is declared and checked by the service in question - and the user's identity nullifier.
 
-The external nullifier is then derived by hashing the user's identity proxy with a random value. Constraining the external nullifier in this way is important for the next step.
+The external nullifier is then derived by hashing the user's identity proxy with a random value.
 
-The circuit uses the same derivation of the nullifier hash as found in the [`semaphore.circom`](https://github.com/semaphore-protocol/semaphore/blob/main/circuits/semaphore.circom), i.e. by hashing the external nullifier with the identity nullifier. Because the external nullifier has been constrained to use the identity nullifier as an input, we are in affect making it possible to verify that the signal (which uses the same nullifier hash) is constrained to the service the user intended to interact with. (If this were not the case, a malicious node could potentially redirect the user's signal to another service.)
+The circuit uses the same derivation of the nullifier hash as found in the [`semaphore.circom`](https://github.com/semaphore-protocol/semaphore/blob/main/circuits/semaphore.circom), i.e. by hashing the external nullifier with the identity nullifier. Because the external nullifier has been constrained to use the identity nullifier as an input, we are able to ensure that the same identity nullifier has been used as input to both circuits. If this were not the case, the prover could freely select any value for the identity, regardless of whether it had a commitment in the group.
+
+Note: Currently this circuit is unintentionally doing redundant work. There is no benefit in constraining the external nullifier to be derived in this way, and it could instead directly take on the role of the random nonce. Furthermore, it would be beneficial in a future iteration to merge the circuits into a single bespoke circuit so as to reduce verification gas costs. This would involve departing from Semaphore Protocol's stack, so involves significant work.
 
 ## For service developers
 
